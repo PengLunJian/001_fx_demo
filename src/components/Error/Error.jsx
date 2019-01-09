@@ -27,7 +27,12 @@ export default class Error extends Component {
 
     render() {
         return (
-            <div className="Error"></div>
+            <div className="Error">
+                <div className="content">
+                    <i className="icon-error"></i>
+                    <button className="btn btn-refresh">重新加载</button>
+                </div>
+            </div>
         )
     }
 }
