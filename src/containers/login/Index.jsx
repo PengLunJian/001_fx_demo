@@ -5,7 +5,9 @@ export default class HelloWorld extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            title: 'HELLO REACT !'
+        };
     }
 
     componentWillMount() {
@@ -13,6 +15,9 @@ export default class HelloWorld extends Component {
     }
 
     componentDidMount() {
+        this.setState({
+            title: 'HELLO WORLD !'
+        });
         console.log('componentDidMount');
     }
 
@@ -22,6 +27,7 @@ export default class HelloWorld extends Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         console.log('shouldComponentUpdate');
+        return true;
     }
 
     componentWillUpdate(nextProps, nextState) {
@@ -33,9 +39,10 @@ export default class HelloWorld extends Component {
     }
 
     render() {
+        const {title} = this.state;
         return (
             <div className="module">
-                <h1 className="title">Hello React!</h1>
+                <h1 className="title">{title}</h1>
             </div>
         );
     }
