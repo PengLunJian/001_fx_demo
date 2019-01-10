@@ -5,9 +5,7 @@ export default class HelloWorld extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            title: 'HELLO REACT !'
-        };
+        this.state = {};
     }
 
     componentWillMount() {
@@ -39,11 +37,8 @@ export default class HelloWorld extends Component {
     }
 
     render() {
-        const {title} = this.state;
         return (
-            <div className="module">
-                <h1 className="title">{title}</h1>
-            </div>
+            <div className="Login">登录页面</div>
         );
     }
 }
