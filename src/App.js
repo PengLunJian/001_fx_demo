@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import CustomerRouter from "./router";
+import Routes from './router/routes';
 import '../node_modules/normalize.css';
 import './assets/less/common.less';
 import './App.less';
 
-class App extends Component {
+export default class App extends Component {
 
     constructor(props) {
         super(props);
@@ -41,11 +42,9 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <div className="App">
-                    <CustomerRouter></CustomerRouter>
+                    <CustomerRouter $routes={Routes}></CustomerRouter>
                 </div>
             </BrowserRouter>
         );
     }
 }
-
-export default App;
