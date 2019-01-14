@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FooterBar from '../../components/FooterBar/FooterBar';
+import './Index.less';
 
 export default class Home extends Component {
     constructor(props) {
@@ -11,6 +12,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
+        console.log(1);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -27,7 +29,7 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div className="Home">
+            <div className="home">
                 <FooterBar></FooterBar>
             </div>
         )

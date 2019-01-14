@@ -2,32 +2,32 @@ import Home from "../containers/home/Index";
 import User from "../containers/user/Index";
 import Login from "../containers/login/Index";
 
-const routes = [
-    {
+const routes = {
+    Login: {
         name: 'Login',
         path: '/',
         exact: true,
         meta: {index: 1},
-        component: Login
+        component: () => {
+            return Login;
+        }
     },
-    {
-        name: 'Login',
-        path: '/Login',
-        meta: {index: 1},
-        component: Login
-    },
-    {
+    User: {
         name: 'User',
         path: '/User',
         meta: {index: 1},
-        component: User
+        component: () => {
+            return User;
+        }
     },
-    {
+    Home: {
         name: 'Home',
         path: '/Home',
         meta: {index: 1},
-        component: Home
+        component: () => {
+            return Home;
+        }
     }
-];
+};
 
 export default routes;
