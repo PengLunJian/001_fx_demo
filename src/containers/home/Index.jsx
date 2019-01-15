@@ -12,7 +12,7 @@ export default class Home extends Component {
     }
 
     componentDidMount() {
-        console.log(1);
+
     }
 
     componentWillReceiveProps(nextProps) {

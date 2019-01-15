@@ -29,16 +29,20 @@ export default class FooterBar extends Component {
         return (
             <div className="footer">
                 <div className="footer-inner">
-                    <div className="footer-item">
+                    <div className="footer-item active">
+                        <i className="icon icon-home"></i>
                         <span>首页</span>
                     </div>
                     <div className="footer-item">
-                        <span>待定</span>
+                        <i className="icon icon-life"></i>
+                        <span>生活</span>
                     </div>
                     <div className="footer-item">
-                        <span>待定</span>
+                        <i className="icon icon-cart"></i>
+                        <span>购物车</span>
                     </div>
                     <div className="footer-item">
+                        <i className="icon icon-mine"></i>
                         <span>我的</span>
                     </div>
                 </div>

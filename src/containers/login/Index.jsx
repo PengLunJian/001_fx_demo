@@ -46,7 +46,7 @@ export default class Login extends Component {
                 <div className="login-bg"></div>
                 <div className="login-content">
                     <div className="login-header">
-                        <h1 className="login-title">Apple Music</h1>
+                        <h1 className="login-title">Tmall Shopping</h1>
                     </div>
                     <div className="login-body">
                         <div className="form-group">
