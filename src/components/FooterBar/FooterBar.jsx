@@ -1,52 +1,73 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
+import routes from '../../router/routes';
 import './FooterBar.less';
 
-export default class FooterBar extends Component {
+class FooterBar extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
-    }
-
-    componentWillMount() {
+        this.state = {
+            data: [
+                {
+                    name: '首页',
+                    icon: 'icon-home',
+                    path: routes.Home.path
+                },
+                {
+                    name: '生活',
+                    icon: 'icon-life',
+                    path: routes.Life.path
+                },
+                {
+                    name: '购物车',
+                    icon: 'icon-cart',
+                    path: routes.Cart.path
+                },
+                {
+                    name: '我的',
+                    icon: 'icon-mine',
+                    path: routes.Mine.path
+                }
+            ]
+        };
     }
 
     componentDidMount() {
+
     }
 
-    componentWillReceiveProps(nextProps) {
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-    }
-
-    componentDidUpdate(prevProps, prevState) {
+    handlerClick = (path) => {
+        const {history} = this.props;
+        history.replace({
+            pathname: path
+        });
     }
 
     render() {
+        const {match} = this.props;
+        const {path} = match;
+        const {data} = this.state;
         return (
             <div className="footer">
                 <div className="footer-inner">
-                    <div className="footer-item active">
-                        <i className="icon icon-home"></i>
-                        <span>首页</span>
-                    </div>
-                    <div className="footer-item">
-                        <i className="icon icon-life"></i>
-                        <span>生活</span>
-                    </div>
-                    <div className="footer-item">
-                        <i className="icon icon-cart"></i>
-                        <span>购物车</span>
-                    </div>
-                    <div className="footer-item">
-                        <i className="icon icon-mine"></i>
-                        <span>我的</span>
-                    </div>
+                    {
+                        data.map((item, index) => {
+                            return (
+                                <div className={'footer-item' + (item.path === path ? ' active' : '')}
+                                     key={index}
+                                     onClick={() => {
+                                         this.handlerClick(item.path);
+                                     }}>
+                                    <i className={'icon ' + item.icon}></i>
+                                    <span>{item.name}</span>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         )
     }
 }
+
+export default withRouter(FooterBar);

@@ -14,20 +14,17 @@ const handlerLoginReducer = (state = states.initLogin, action) => {
             return Object.assign({}, state, {
                 isLoading: true
             });
-            break;
         case actionTypes.SELECT_ACCOUNT_SUCCESS:
             return Object.assign({}, state, {
                 isLoading: true,
                 isSuccess: true,
                 data: action => action.data
             });
-            break;
         case actionTypes.SELECT_ACCOUNT_FAILURE:
             return Object.assign({}, state, {
                 isLoading: true,
                 isFailure: false
             });
-            break;
         default:
             return state;
     }
@@ -44,20 +41,17 @@ const handlerIndexReducer = (state = states.initIndex, action) => {
             return Object.assign({}, state, {
                 isLoading: true
             });
-            break;
         case actionTypes.SELECT_PRODUCTS_SUCCESS:
             return Object.assign({}, state, {
                 isLoading: true,
                 isSuccess: true,
                 data: action => action.data
             });
-            break;
         case actionTypes.SELECT_PRODUCTS_FAILURE:
             return Object.assign({}, state, {
                 isLoading: true,
                 isSuccess: false
             });
-            break;
         default:
             return state;
     }

@@ -1,5 +1,7 @@
 import Home from "../containers/home/Index";
-import User from "../containers/user/Index";
+import Life from "../containers/life/Index";
+import Cart from "../containers/cart/Index";
+import Mine from "../containers/mine/Index";
 import Login from "../containers/login/Index";
 
 const routes = {
@@ -12,14 +14,6 @@ const routes = {
             return Login;
         }
     },
-    User: {
-        name: 'User',
-        path: '/User',
-        meta: {index: 1},
-        component: () => {
-            return User;
-        }
-    },
     Home: {
         name: 'Home',
         path: '/Home',
@@ -27,7 +21,33 @@ const routes = {
         component: () => {
             return Home;
         }
-    }
+    },
+    Life: {
+        name: 'Life',
+        path: '/Life',
+        meta: {index: 1},
+        component: () => {
+            return Life;
+        }
+    },
+    Cart: {
+        name: 'Cart',
+        path: '/Cart',
+        meta: {index: 1},
+        component: () => {
+            return Cart;
+        }
+    },
+    Mine: {
+        name: 'Mine',
+        path: '/Mine',
+        meta: {index: 1},
+        component: () => {
+            return Mine;
+        }
+    },
+
+
 };
 
 export default routes;
