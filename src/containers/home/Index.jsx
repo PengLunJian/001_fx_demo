@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import totalRootReducers from '../../redux/reducers';
+import {ajaxRequestSelectProducts} from '../../redux/actions';
 import FooterBar from '../../components/FooterBar/FooterBar';
 import './Index.less';
 
@@ -11,23 +11,36 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        console.log(this);
+        this.props.ajaxRequestSelectProducts();
     }
 
     render() {
+        const {props} = this;
+        const {isLoading} = props;
+        console.log(props);
         return (
             <div className="home">
-                <h1>首页</h1>
+                <h1>首页{isLoading.toString()}</h1>
                 <FooterBar></FooterBar>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => ({
-    initIndex: totalRootReducers.handlerIndexReducer(state)
-})
+const mapStateToProps = (state) => {
+    const {HOME_REDUCER} = state;
+    return {
+        ...HOME_REDUCER
+    };
+}
 
-export default connect({
-    mapStateToProps
-})(Home)
+const mapDispatchToProps = () => {
+    return {
+        ajaxRequestSelectProducts
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Home)
