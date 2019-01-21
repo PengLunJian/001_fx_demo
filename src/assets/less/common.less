@@ -83,6 +83,14 @@ h6 {
   float: left;
 }
 
+.row {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
 .disabled {
   cursor: not-allowed;
 }

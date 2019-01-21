@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import FooterBar from "../../components/FooterBar/FooterBar";
+import FooterBar from "../../components/footerBar/FooterBar";
+import HeaderBar from "../../components/headerBar/HeaderBar";
 
 export default class Mine extends Component {
     constructor(props) {
@@ -14,8 +15,8 @@ export default class Mine extends Component {
     render() {
         return (
             <div className="mine">
-                <h1>我的</h1>
-                <FooterBar></FooterBar>
+                <HeaderBar title="我的"/>
+                <FooterBar/>
             </div>
         )
     }

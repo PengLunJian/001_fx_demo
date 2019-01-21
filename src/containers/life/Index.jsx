@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import FooterBar from '../../components/FooterBar/FooterBar';
+import FooterBar from '../../components/footerBar/FooterBar';
+import HeaderBar from "../../components/headerBar/HeaderBar";
 import './Index.less';
 
 export default class Home extends Component {
@@ -15,8 +16,8 @@ export default class Home extends Component {
     render() {
         return (
             <div className="life">
-                <h1>生活</h1>
-                <FooterBar></FooterBar>
+                <HeaderBar title="生活"/>
+                <FooterBar/>
             </div>
         )
     }

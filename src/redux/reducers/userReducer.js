@@ -8,30 +8,30 @@ import * as states from "../states";
  * @returns {*}
  * @constructor
  */
-const HOME_REDUCER = (state = states.HOME_STATE, action) => {
+const USER_REDUCER = (state = states.USER_STATE, action) => {
     switch (action.type) {
-        case ACTION_TYPES.SELECT_PRODUCTS_REQUEST:
+        case ACTION_TYPES.SELECT_ACCOUNT_REQUEST:
             return {
                 ...state,
-                products: Object.assign({}, state.products, {
+                account: Object.assign({}, state.account, {
                     isLoading: true
                 })
             };
-        case ACTION_TYPES.SELECT_PRODUCTS_SUCCESS:
+        case ACTION_TYPES.SELECT_ACCOUNT_SUCCESS:
             return {
                 ...state,
-                products: Object.assign({}, state.products, {
+                account: Object.assign({}, state.account, {
                     isLoading: true,
                     isSuccess: true,
-                    data: action.data
+                    data: action => action.data
                 })
             };
-        case ACTION_TYPES.SELECT_PRODUCTS_FAILURE:
+        case ACTION_TYPES.SELECT_ACCOUNT_FAILURE:
             return {
                 ...state,
-                products: Object.assign({}, state.products, {
+                account: Object.assign({}, state.account, {
                     isLoading: true,
-                    isSuccess: false
+                    isFailure: false
                 })
             };
         default:
@@ -39,4 +39,4 @@ const HOME_REDUCER = (state = states.HOME_STATE, action) => {
     }
 };
 
-export default HOME_REDUCER;
+export default USER_REDUCER;
