@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import FooterBar from '../../components/FooterBar/FooterBar';
+import FooterBar from '../../components/footerBar/FooterBar';
 import './Index.less';
+import HeaderBar from "../../components/headerBar/HeaderBar";
 
 export default class Home extends Component {
     constructor(props) {
@@ -15,8 +16,8 @@ export default class Home extends Component {
     render() {
         return (
             <div className="cart">
-                <h1>购物车</h1>
-                <FooterBar></FooterBar>
+                <HeaderBar title="购物车"/>
+                <FooterBar/>
             </div>
         )
     }

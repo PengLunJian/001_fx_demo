@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {ajaxRequestSelectProducts} from '../../redux/actions';
-import FooterBar from '../../components/FooterBar/FooterBar';
+import {
+    ajaxRequestSelectAccount,
+    ajaxRequestSelectProducts
+} from '../../redux/actions';
+import FooterBar from '../../components/footerBar/FooterBar';
 import './Index.less';
+import Product from "../../components/product/Product";
+import HeaderBar from "../../components/headerBar/HeaderBar";
 
 class Home extends Component {
     constructor(props) {
@@ -11,31 +16,98 @@ class Home extends Component {
     }
 
     componentDidMount() {
-        this.props.ajaxRequestSelectProducts();
+        const data = [
+            {
+                img: require('../../assets/images/iphone.jpg'),
+                title: '我是测试标题',
+                price: '150.00'
+            },
+            {
+                img: require('../../assets/images/iphone.jpg'),
+                title: '我是测试标题',
+                price: '150.00'
+            },
+            {
+                img: require('../../assets/images/iphone.jpg'),
+                title: '我是测试标题',
+                price: '150.00'
+            },
+            {
+                img: require('../../assets/images/iphone.jpg'),
+                title: '我是测试标题',
+                price: '150.00'
+            },
+            {
+                img: require('../../assets/images/iphone.jpg'),
+                title: '我是测试标题',
+                price: '150.00'
+            },
+            {
+                img: require('../../assets/images/iphone.jpg'),
+                title: '我是测试标题',
+                price: '150.00'
+            },
+            {
+                img: require('../../assets/images/iphone.jpg'),
+                title: '我是测试标题',
+                price: '150.00'
+            },
+            {
+                img: require('../../assets/images/iphone.jpg'),
+                title: '我是测试标题',
+                price: '150.00'
+            },
+            {
+                img: require('../../assets/images/iphone.jpg'),
+                title: '我是测试标题',
+                price: '150.00'
+            },
+            {
+                img: require('../../assets/images/iphone.jpg'),
+                title: '我是测试标题',
+                price: '150.00'
+            }
+        ];
+        this.props.ajaxRequestSelectAccount();
+        this.props.ajaxRequestSelectProducts(data);
     }
 
     render() {
-        const {props} = this;
-        const {isLoading} = props;
-        console.log(props);
+        const {HOME_REDUCER} = this.props;
+        const {products} = HOME_REDUCER;
+        const {data} = products;
         return (
             <div className="home">
-                <h1>首页{isLoading.toString()}</h1>
-                <FooterBar></FooterBar>
+                <HeaderBar title="首页"/>
+                <div className="products row">
+                    {
+                        (data || []).map((item, index) => {
+                            return (
+                                <Product item={item} key={index}></Product>
+                            )
+                        })
+                    }
+                </div>
+                <FooterBar/>
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => {
-    const {HOME_REDUCER} = state;
+    const {
+        HOME_REDUCER,
+        USER_REDUCER
+    } = state;
     return {
-        ...HOME_REDUCER
+        HOME_REDUCER,
+        USER_REDUCER
     };
 }
 
 const mapDispatchToProps = () => {
     return {
+        ajaxRequestSelectAccount,
         ajaxRequestSelectProducts
     }
 }
