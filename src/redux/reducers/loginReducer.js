@@ -1,4 +1,4 @@
-import actionTypes from "../actionTypes";
+import ACTION_TYPES from "../actionTypes";
 import * as states from "../states";
 
 /**
@@ -10,17 +10,17 @@ import * as states from "../states";
  */
 const LOGIN_REDUCER = (state = states.initLogin, action) => {
     switch (action.type) {
-        case actionTypes.SELECT_ACCOUNT_REQUEST:
+        case ACTION_TYPES.SELECT_ACCOUNT_REQUEST:
             return Object.assign({}, state, {
                 isLoading: true
             });
-        case actionTypes.SELECT_ACCOUNT_SUCCESS:
+        case ACTION_TYPES.SELECT_ACCOUNT_SUCCESS:
             return Object.assign({}, state, {
                 isLoading: true,
                 isSuccess: true,
                 data: action => action.data
             });
-        case actionTypes.SELECT_ACCOUNT_FAILURE:
+        case ACTION_TYPES.SELECT_ACCOUNT_FAILURE:
             return Object.assign({}, state, {
                 isLoading: true,
                 isFailure: false

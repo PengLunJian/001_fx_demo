@@ -1,4 +1,4 @@
-const actionTypes = {
+const ACTION_TYPES = {
     // 登录查询
     SELECT_ACCOUNT_REQUEST: 'SELECT_ACCOUNT_REQUEST',
     SELECT_ACCOUNT_SUCCESS: 'SELECT_ACCOUNT_SUCCESS',
@@ -9,4 +9,4 @@ const actionTypes = {
     SELECT_PRODUCTS_FAILURE: 'SELECT_PRODUCTS_FAILURE'
 };
 
-export default actionTypes;
+export default ACTION_TYPES;

@@ -1,4 +1,4 @@
-import actionTypes from "../actionTypes";
+import ACTION_TYPES from "../actionTypes";
 import * as states from "../states";
 
 /**
@@ -10,17 +10,17 @@ import * as states from "../states";
  */
 const HOME_REDUCER = (state = states.initIndex, action) => {
     switch (action.type) {
-        case actionTypes.SELECT_PRODUCTS_REQUEST:
+        case ACTION_TYPES.SELECT_PRODUCTS_REQUEST:
             return Object.assign({}, state, {
                 isLoading: true
             });
-        case actionTypes.SELECT_PRODUCTS_SUCCESS:
+        case ACTION_TYPES.SELECT_PRODUCTS_SUCCESS:
             return Object.assign({}, state, {
                 isLoading: true,
                 isSuccess: true,
                 data: action => action.data
             });
-        case actionTypes.SELECT_PRODUCTS_FAILURE:
+        case ACTION_TYPES.SELECT_PRODUCTS_FAILURE:
             return Object.assign({}, state, {
                 isLoading: true,
                 isSuccess: false
