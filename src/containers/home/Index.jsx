@@ -5,10 +5,10 @@ import {
     ajaxRequestSelectProducts
 } from '../../redux/actions';
 import FooterBar from '../../components/footerBar/FooterBar';
-import './Index.less';
-import Product from "../../components/product/Product";
 import HeaderBar from "../../components/headerBar/HeaderBar";
 import Loading from "../../components/loading/Loading";
+import Product from "../../components/product/Product";
+import './Index.less';
 
 class Home extends Component {
     constructor(props) {
