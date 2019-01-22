@@ -1,4 +1,4 @@
-import ACTION_TYPES from "../actionTypes";
+import * as ACTION_TYPES from "../actionTypes";
 import * as states from "../states";
 
 /**
@@ -21,7 +21,7 @@ const HOME_REDUCER = (state = states.HOME_STATE, action) => {
             return {
                 ...state,
                 products: Object.assign({}, state.products, {
-                    isLoading: true,
+                    isLoading: false,
                     isSuccess: true,
                     data: action.data
                 })

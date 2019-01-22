@@ -1,0 +1,57 @@
+@import '../../assets/less/variable';
+
+.loading {
+  padding: 0.5rem 0;
+  text-align: center;
+  font-size: 0;
+  animation: fadeIn 300ms ease-out forwards;
+  .loading-inner {
+    display: inline-block;
+    .loading-item {
+      width: 0.06rem;
+      height: 0.18rem;
+      position: relative;
+      display: inline-block;
+      margin-right: 0.05rem;
+      border-radius: 0.06rem;
+      background-color: #333333;
+      box-shadow: 0 0 0.15rem rgba(0, 0, 0, .05);
+      &:nth-child(1) {
+        animation: loading 800ms -0ms ease-out infinite;
+      }
+      &:nth-child(2) {
+        animation: loading 800ms -200ms ease-out infinite;
+      }
+      &:nth-child(3) {
+        animation: loading 800ms -400ms ease-out infinite;
+      }
+      &:last-child {
+        margin: 0;
+      }
+      &:before {
+        content: '';
+        width: 0;
+        height: 0.28rem;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -0.14rem;
+        margin-left: -0.5px;
+        border-left: 1px solid #333333;
+      }
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: translateY(0%);
+  }
+  50% {
+    transform: translateY(-60%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}

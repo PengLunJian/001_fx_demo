@@ -1,4 +1,4 @@
-import ACTION_TYPES from "../actionTypes";
+import * as ACTION_TYPES from "../actionTypes";
 import * as states from "../states";
 
 /**

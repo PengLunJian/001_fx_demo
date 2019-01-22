@@ -8,6 +8,7 @@ import FooterBar from '../../components/footerBar/FooterBar';
 import './Index.less';
 import Product from "../../components/product/Product";
 import HeaderBar from "../../components/headerBar/HeaderBar";
+import Loading from "../../components/loading/Loading";
 
 class Home extends Component {
     constructor(props) {
@@ -75,6 +76,7 @@ class Home extends Component {
     render() {
         const {HOME_REDUCER} = this.props;
         const {products} = HOME_REDUCER;
+        const {isLoading} = products;
         const {data} = products;
         return (
             <div className="home">
@@ -88,6 +90,7 @@ class Home extends Component {
                         })
                     }
                 </div>
+                <Loading isShow={isLoading}/>
                 <FooterBar/>
             </div>
         )

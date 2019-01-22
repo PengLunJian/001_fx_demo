@@ -1,5 +1,7 @@
 import store from './store';
-import ACTION_TYPES from './actionTypes';
+import * as ACTION_TYPES from './actionTypes';
+
+const {dispatch} = store;
 
 /**
  *
@@ -9,7 +11,7 @@ import ACTION_TYPES from './actionTypes';
  */
 export const ajaxRequestSelectAccount = () => {
     return new Promise((resolve, reject) => {
-        store.dispatch({
+        dispatch({
             type: ACTION_TYPES.SELECT_ACCOUNT_REQUEST
         })
     })
@@ -22,9 +24,14 @@ export const ajaxRequestSelectAccount = () => {
  */
 export const ajaxRequestSelectProducts = (data) => {
     return new Promise((resolve, reject) => {
-        store.dispatch({
-            type: ACTION_TYPES.SELECT_PRODUCTS_SUCCESS,
-            data
+        dispatch({
+            type: ACTION_TYPES.SELECT_PRODUCTS_REQUEST
         })
+        setTimeout(() => {
+            dispatch({
+                type: ACTION_TYPES.SELECT_PRODUCTS_SUCCESS,
+                data
+            })
+        }, 5000);
     })
 }

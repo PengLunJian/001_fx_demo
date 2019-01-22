@@ -1,33 +1,41 @@
-import React, {Component} from 'react-dom';
+import React, {Component} from 'react';
 import './Loading.less';
 
 export default class Loading extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
-    }
-
-    componentWillMount() {
+        this.state = {
+            isRemove: false
+        };
     }
 
     componentDidMount() {
+
     }
 
     componentWillReceiveProps(nextProps) {
-    }
-
-    shouldComponentUpdate(nextProps, nextState) {
-    }
-
-    componentWillUpdate(nextProps, nextState) {
-    }
-
-    componentDidUpdate(prevProps, prevState) {
+        const {isShow} = nextProps;
+        if (!isShow) {
+            setTimeout(() => {
+                this.setState({
+                    isRemove: true
+                });
+            }, 300);
+        }
     }
 
     render() {
-        return (
-            <div className="Loading"></div>
+        const {isShow} = this.props;
+        const {isRemove} = this.state;
+        const clazz = 'loading' + (isShow ? '' : ' hide');
+        return isRemove ? null : (
+            <div className={clazz}>
+                <div className="loading-inner">
+                    <div className="loading-item"></div>
+                    <div className="loading-item"></div>
+                    <div className="loading-item"></div>
+                </div>
+            </div>
         )
     }
 }
