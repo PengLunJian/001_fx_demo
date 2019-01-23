@@ -2,33 +2,19 @@ import Axios from 'axios';
 import apis from '../apis';
 
 const getConfig = (config) => {
-    // const {data} = config;
-    // const opts = config.url;
-    // config.method = apis.method;
-    // config.timeout = apis.timeout;
-    // config.headers = apis.headers;
-    // console.log(config);
-    // if (data) {
-    //     const {url, params} = opts;
-    //     config.url = apis.baseUrl + url;
-    //     config.data = Object.assign(params, data);
-    // } else {
-    //     const {url} = opts;
-    //     config.url = apis.baseUrl + url;
-    // }
-    // return config;
-
-
-    const baseUrl = apis.baseUrl + config.url;
-    config.url = baseUrl;
+    const {data} = config;
+    const opts = config.url;
     config.method = apis.method;
     config.timeout = apis.timeout;
     config.headers = apis.headers;
-    if (apis.method === 'post') {
-        config.data = config.params;
-        console.log(config.data);
+    if (data) {
+        const {url, params} = opts;
+        config.url = apis.baseUrl + url;
+        config.data = Object.assign(params, data);
+    } else {
+        const {url} = opts;
+        config.url = apis.baseUrl + url;
     }
-    console.log(config);
     return config;
 }
 

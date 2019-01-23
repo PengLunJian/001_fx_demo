@@ -1,18 +1,17 @@
 import apis from '../apis';
+import store from './store';
 import axios from '../axios';
 import * as ACTION_TYPES from './actionTypes';
 
 /**
  *
- * @param dispatch
+ * @param type
  * @param data
- * @returns {Promise<any>}
  */
-export const ajaxRequestSelectAccount = (dispatch) => {
-    return new Promise((resolve, reject) => {
-        dispatch({
-            type: ACTION_TYPES.SELECT_ACCOUNT_REQUEST
-        })
+const commit = (type, data) => {
+    store.dispatch({
+        type,
+        data,
     })
 }
 /**
@@ -21,32 +20,49 @@ export const ajaxRequestSelectAccount = (dispatch) => {
  * @param data
  * @returns {Promise<any>}
  */
-export const ajaxRequestSelectProducts = (dispatch) => {
-    dispatch({
-        type: ACTION_TYPES.SELECT_PRODUCTS_REQUEST
-    });
+export const ajaxRequestSelectAccount = (data) => {
+    commit(ACTION_TYPES.SELECT_ACCOUNT_REQUEST);
     return new Promise((resolve, reject) => {
-        axios(apis.selectProducts, {pageCode: 2})
+        axios.post(apis.selectAccount, data)
             .then((res) => {
                 res = res || {};
-                const {data, success} = res || {};
+                const {data, success} = res;
                 if (success) {
-                    dispatch({
-                        type: ACTION_TYPES.SELECT_PRODUCTS_SUCCESS,
-                        data
-                    });
+                    commit(ACTION_TYPES.SELECT_ACCOUNT_SUCCESS, data);
                 } else {
-                    dispatch({
-                        type: ACTION_TYPES.SELECT_PRODUCTS_FAILURE
-                    });
+                    commit(ACTION_TYPES.SELECT_ACCOUNT_FAILURE);
                 }
                 resolve(res);
             })
             .catch((err) => {
-                dispatch({
-                    type: ACTION_TYPES.SELECT_PRODUCTS_FAILURE
-                });
+                commit(ACTION_TYPES.SELECT_ACCOUNT_FAILURE);
                 reject(err);
             });
-    })
+    });
+}
+/**
+ *
+ * @param dispatch
+ * @param data
+ * @returns {Promise<any>}
+ */
+export const ajaxRequestSelectProducts = (data) => {
+    commit(ACTION_TYPES.SELECT_PRODUCTS_REQUEST);
+    return new Promise((resolve, reject) => {
+        axios.post(apis.selectProducts, data)
+            .then((res) => {
+                res = res || {};
+                const {data, success} = res;
+                if (success) {
+                    commit(ACTION_TYPES.SELECT_PRODUCTS_SUCCESS, data);
+                } else {
+                    commit(ACTION_TYPES.SELECT_PRODUCTS_FAILURE);
+                }
+                resolve(res);
+            })
+            .catch((err) => {
+                commit(ACTION_TYPES.SELECT_PRODUCTS_FAILURE);
+                reject(err);
+            });
+    });
 }

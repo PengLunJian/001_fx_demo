@@ -9,12 +9,16 @@ import './Index.less';
 class Home extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            pageCode: 1
+        };
     }
 
     componentDidMount() {
         document.title = '首页';
-        this.props.ajaxRequestSelectProducts();
+        const {pageCode} = this.state;
+        const data = {pageCode};
+        this.props.ajaxRequestSelectProducts(data);
     }
 
     render() {

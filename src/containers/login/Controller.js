@@ -1,5 +1,5 @@
 import {
-    ajaxRequestSelectProducts
+    ajaxRequestSelectAccount
 } from '../../redux/actions';
 
 /**
@@ -23,6 +23,6 @@ export const mapStateToProps = (state) => {
  */
 export const mapDispatchToProps = () => {
     return {
-        ajaxRequestSelectProducts
+        ajaxRequestSelectAccount
     };
 }

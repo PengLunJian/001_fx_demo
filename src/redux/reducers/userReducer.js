@@ -14,16 +14,20 @@ const USER_REDUCER = (state = states.USER_STATE, action) => {
             return {
                 ...state,
                 account: Object.assign({}, state.account, {
-                    isLoading: true
+                    isLoading: true,
+                    isSuccess: false,
+                    isFailure: false,
+                    data: null
                 })
             };
         case ACTION_TYPES.SELECT_ACCOUNT_SUCCESS:
             return {
                 ...state,
                 account: Object.assign({}, state.account, {
-                    isLoading: true,
+                    isLoading: false,
                     isSuccess: true,
-                    data: action => action.data
+                    isFailure: false,
+                    data: action.data
                 })
             };
         case ACTION_TYPES.SELECT_ACCOUNT_FAILURE:
@@ -31,7 +35,9 @@ const USER_REDUCER = (state = states.USER_STATE, action) => {
                 ...state,
                 account: Object.assign({}, state.account, {
                     isLoading: true,
-                    isFailure: false
+                    isSuccess: false,
+                    isFailure: false,
+                    data: null
                 })
             };
         default:

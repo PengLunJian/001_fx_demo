@@ -1,13 +1,14 @@
-import Base from "./Base";
+export default class Utils {
 
-export default class HtmlFontSize extends Base {
-
-    constructor(props) {
-        super(props);
-        this.exeSetFontSize();
+    constructor() {
+        this.props = {};
     }
 
-    setFontSize() {
+    handlerPagination(data) {
+        return data;
+    }
+
+    handlerHtmlFontSize() {
         const iWidth = document.body.clientWidth
             || document.documentElement.clientWidth;
         const fontSize = iWidth / 3.75;
@@ -15,10 +16,10 @@ export default class HtmlFontSize extends Base {
         oHtml.style.fontSize = fontSize + 'px';
     }
 
-    exeSetFontSize() {
-        this.setFontSize();
+    exeHandlerHtmlFontSize() {
+        this.handlerHtmlFontSize();
         window.onresize = () => {
-            this.setFontSize()
+            this.handlerHtmlFontSize()
         }
     }
 }

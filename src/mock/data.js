@@ -1,6 +1,13 @@
 const data = {
     data1: {
         success: true,
+        data: {
+            username: 'PENG',
+            password: '18130278679'
+        }
+    },
+    data2: {
+        success: true,
         data: [
             {
                 img: require('../assets/images/iphone.jpg'),

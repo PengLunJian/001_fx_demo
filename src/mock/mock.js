@@ -1,6 +1,7 @@
 import Mock from 'mockjs';
 import data from './data';
 import apis from '../apis';
+import Utils from '../utils/index';
 
 Mock.setup({
     timeout: 1500
@@ -12,8 +13,14 @@ Mock.exeMock = (apiMain, callback) => {
     });
 }
 
+Mock.exeMock(apis.selectAccount, (response) => {
+    return data.data1;
+});
+
 
 Mock.exeMock(apis.selectProducts, (response) => {
-    console.log(response);
-    return data.data1;
+    let util = new Utils();
+    const newData = util.handlerPagination(data.data2);
+    util = null;
+    return newData;
 });

@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import App from "./App";
 import store from './redux/store';
+import App from "./App";
 
 if (process.env.NODE_ENV === 'development') {
     require('./mock/mock');

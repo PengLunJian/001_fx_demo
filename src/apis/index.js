@@ -9,16 +9,16 @@ const apis = {
     selectAccount: {
         url: '/selectAccount',
         params: {
-            username: 'PENG',
-            password: '18130278679'
+            username: '',
+            password: ''
         }
     },
     selectProducts: {
         url: '/selectProducts',
-        // params: {
-        //     pageCode: 1,
-        //     pageSize: 10
-        // }
+        params: {
+            pageCode: 1,
+            pageSize: 10
+        }
     }
 }
 
