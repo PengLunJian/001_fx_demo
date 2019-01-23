@@ -16,6 +16,7 @@
     }
     .item-info {
       padding: 0.1rem;
+      font-size: 0;
       .item-title {
         height: 0.2rem;
         margin-bottom: 0.05rem;
@@ -24,8 +25,20 @@
         font-size: 0.13rem;
       }
       .item-price {
+        display: inline-block;
+        height: 0.16rem;
+        line-height: 0.16rem;
+        font-size: 0.14rem;
         font-weight: bold;
         color: @redColor;
+      }
+      .item-count {
+        display: block;
+        float: right;
+        height: 0.16rem;
+        line-height: 0.16rem;
+        font-size: 0.12rem;
+        color: @fontColor3;
       }
     }
   }

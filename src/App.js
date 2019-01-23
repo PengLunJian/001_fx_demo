@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import CustomerRouter from "./router";
-import HtmlFontSize from './classes/HtmlFontSize';
+import HtmlFontSize from './library/HtmlFontSize';
 import '../node_modules/normalize.css';
 import './assets/less/common.less';
 import './App.less';

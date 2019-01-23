@@ -14,7 +14,10 @@ const HOME_REDUCER = (state = states.HOME_STATE, action) => {
             return {
                 ...state,
                 products: Object.assign({}, state.products, {
-                    isLoading: true
+                    isLoading: true,
+                    isSuccess: false,
+                    isFailure: false,
+                    data: null
                 })
             };
         case ACTION_TYPES.SELECT_PRODUCTS_SUCCESS:
@@ -23,6 +26,7 @@ const HOME_REDUCER = (state = states.HOME_STATE, action) => {
                 products: Object.assign({}, state.products, {
                     isLoading: false,
                     isSuccess: true,
+                    isFailure: false,
                     data: action.data
                 })
             };
@@ -31,7 +35,9 @@ const HOME_REDUCER = (state = states.HOME_STATE, action) => {
                 ...state,
                 products: Object.assign({}, state.products, {
                     isLoading: true,
-                    isSuccess: false
+                    isSuccess: false,
+                    isFailure: false,
+                    data: null
                 })
             };
         default:

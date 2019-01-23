@@ -21,6 +21,10 @@ export default class Loading extends Component {
                     isRemove: true
                 });
             }, 300);
+        } else {
+            this.setState({
+                isRemove: false
+            });
         }
     }
 

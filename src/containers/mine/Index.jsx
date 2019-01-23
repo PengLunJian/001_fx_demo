@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import FooterBar from "../../components/footerBar/FooterBar";
-import HeaderBar from "../../components/headerBar/HeaderBar";
+import './Index.less';
 
 export default class Mine extends Component {
     constructor(props) {
@@ -9,13 +9,12 @@ export default class Mine extends Component {
     }
 
     componentDidMount() {
-
+        document.title = '我的';
     }
 
     render() {
         return (
             <div className="mine">
-                <HeaderBar title="我的"/>
                 <FooterBar/>
             </div>
         )

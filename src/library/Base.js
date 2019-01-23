@@ -1,5 +1,5 @@
 export default class Base {
     constructor() {
-        this.name = 'BASE';
+        this.name = 'React App';
     }
 }

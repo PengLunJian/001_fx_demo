@@ -1,7 +1,6 @@
-import store from './store';
+import apis from '../apis';
+import axios from '../axios';
 import * as ACTION_TYPES from './actionTypes';
-
-const {dispatch} = store;
 
 /**
  *
@@ -9,7 +8,7 @@ const {dispatch} = store;
  * @param data
  * @returns {Promise<any>}
  */
-export const ajaxRequestSelectAccount = () => {
+export const ajaxRequestSelectAccount = (dispatch) => {
     return new Promise((resolve, reject) => {
         dispatch({
             type: ACTION_TYPES.SELECT_ACCOUNT_REQUEST
@@ -22,16 +21,32 @@ export const ajaxRequestSelectAccount = () => {
  * @param data
  * @returns {Promise<any>}
  */
-export const ajaxRequestSelectProducts = (data) => {
+export const ajaxRequestSelectProducts = (dispatch) => {
+    dispatch({
+        type: ACTION_TYPES.SELECT_PRODUCTS_REQUEST
+    });
     return new Promise((resolve, reject) => {
-        dispatch({
-            type: ACTION_TYPES.SELECT_PRODUCTS_REQUEST
-        })
-        setTimeout(() => {
-            dispatch({
-                type: ACTION_TYPES.SELECT_PRODUCTS_SUCCESS,
-                data
+        axios(apis.selectProducts, {pageCode: 2})
+            .then((res) => {
+                res = res || {};
+                const {data, success} = res || {};
+                if (success) {
+                    dispatch({
+                        type: ACTION_TYPES.SELECT_PRODUCTS_SUCCESS,
+                        data
+                    });
+                } else {
+                    dispatch({
+                        type: ACTION_TYPES.SELECT_PRODUCTS_FAILURE
+                    });
+                }
+                resolve(res);
             })
-        }, 5000);
+            .catch((err) => {
+                dispatch({
+                    type: ACTION_TYPES.SELECT_PRODUCTS_FAILURE
+                });
+                reject(err);
+            });
     })
 }

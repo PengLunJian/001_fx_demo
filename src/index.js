@@ -5,6 +5,10 @@ import * as serviceWorker from './serviceWorker';
 import App from "./App";
 import store from './redux/store';
 
+if (process.env.NODE_ENV === 'development') {
+    require('./mock/mock');
+}
+
 ReactDOM.render(
     <Provider store={store}>
         <App/>
