@@ -1,7 +1,7 @@
 import Mock from 'mockjs';
 import data from './data';
 import apis from '../apis';
-import Utils from '../utils/index';
+import Utils from '../utils/utils';
 
 Mock.setup({
     timeout: 1500

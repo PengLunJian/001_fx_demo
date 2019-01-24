@@ -36,7 +36,15 @@ class FooterBar extends Component {
 
     }
 
-    handlerClick = (path) => {
+    handleClick = (path) => {
+        const {username, password} = sessionStorage;
+        if (path === routes.Mine.path) {
+            if (username && password) {
+                path = routes.Mine.path;
+            } else {
+                path = routes.Login.path;
+            }
+        }
         const {history} = this.props;
         history.replace({
             pathname: path
@@ -56,7 +64,7 @@ class FooterBar extends Component {
                                 <div className={'footer-item' + (item.path === path ? ' active' : '')}
                                      key={index}
                                      onClick={() => {
-                                         this.handlerClick(item.path);
+                                         this.handleClick(item.path);
                                      }}>
                                     <i className={'icon ' + item.icon}></i>
                                     <span>{item.name}</span>

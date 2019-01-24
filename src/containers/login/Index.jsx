@@ -28,6 +28,8 @@ class Login extends Component {
                 if (success) {
                     if (username === data.username &&
                         password === data.password) {
+                        sessionStorage.setItem('username', username);
+                        sessionStorage.setItem('password', password);
                         const {history} = this.props;
                         history.replace({
                             pathname: routes.Home.path

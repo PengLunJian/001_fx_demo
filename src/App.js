@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import CustomerRouter from "./router";
-import Utils from './utils/index';
+import Utils from './utils/utils';
 import '../node_modules/normalize.css';
 import './assets/less/common.less';
 import './App.less';

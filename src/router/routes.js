@@ -5,18 +5,10 @@ import Mine from "../containers/mine/Index";
 import Login from "../containers/login/Index";
 
 const routes = {
-    Login: {
-        name: 'Login',
-        path: '/',
-        exact: true,
-        meta: {index: 1},
-        component: () => {
-            return Login;
-        }
-    },
     Home: {
         name: 'Home',
-        path: '/Home',
+        path: '/',
+        exact: true,
         meta: {index: 1},
         component: () => {
             return Home;
@@ -46,8 +38,14 @@ const routes = {
             return Mine;
         }
     },
-
-
+    Login: {
+        name: 'Login',
+        path: '/Login',
+        meta: {index: 1},
+        component: () => {
+            return Login;
+        }
+    }
 };
 
 export default routes;
