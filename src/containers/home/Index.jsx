@@ -24,8 +24,7 @@ class Home extends Component {
     render() {
         const {HOME_REDUCER} = this.props;
         const {products} = HOME_REDUCER;
-        const {isLoading} = products;
-        const {data} = products;
+        const {isLoading,data} = products;
         return (
             <div className="home">
                 <Products data={data}/>
